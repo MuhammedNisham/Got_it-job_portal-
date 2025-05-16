@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Got It | Home
+{% endblock %}
+
+{% block content %}
+<ol>
+    {% for job in jobs %}
+    <li>
+        {{job.company_name}} - {{job.job_role}}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
