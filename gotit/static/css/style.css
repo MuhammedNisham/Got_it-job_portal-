@@ -17,16 +17,91 @@ body{
             li{ 
                margin-left: 30px;
                font-size: large;
+               transition-duration: .3s;
+            }
+            li:hover{
+                background-color: rgba(115, 235, 137, 0.443);
+                border-radius: 15px;
+                transition-duration: .3s;
             }
         }
-        form{
-            
+        nav{
+            border-radius: 10px;
+            a.navbar-brand{
+                color:rgba(115, 235, 137, 0.842) ;
+                font-size: 28px;
+            }
         }
     }
-    div.homeimg{
-        img{
-            height: 100%;
-            width: 100%;
+    hr{
+        margin-top: 70px;
+    }
+    main{
+        div.mainhead{
+            h1{
+                margin-top: 8%;
+                margin-left: 25%;
+                color: rgba(115, 235, 137, 0.728);
+                font-size: 80px;
+            }
         }
+        div.homesign{
+            margin-top: 5%;
+            p{
+                margin-left: 38%;
+                b{
+                    color: rgba(115, 235, 137, 0.728);
+                }
+            }
+            a{
+                button{
+                    margin-left: 42%;
+                }
+            }
+            hr{
+                margin-top: 7%;
+            }
         }
+        div.more{
+            div.icons{
+                display: flex;
+                margin-left: 17%;
+                margin-top: 3%;
+                svg{
+                    margin-left: 22%;
+                    height: 5%;
+                    width: 5%;
+                    object-fit: cover;
+                }
+        }
+        div.icondesc{
+            display: flex;
+            margin-left: 3%;
+            p.resume{
+                margin-top: 1%;
+                margin-left: 30%;
+            }
+            p.companies{
+                margin-top: 1%;
+                margin-left: 13%;      
+            }
+        }
+    }
+    div.contact{
+        p{
+            margin-left: 44%;
+        }
+        div.cicons{
+            margin-left: 40%;
+            svg{
+                height: 3%;
+                width: 3%;
+                margin-left: 3%;
+            }
+        }
+    }
+}
+footer{
+    margin-left: 42%;
+}
 }
