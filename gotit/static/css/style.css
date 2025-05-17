@@ -5,7 +5,13 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body{
+    height: 100%;
+    width: 100%;
     header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 10;
         ul{
             margin-left: 350px;
             li{ 
@@ -17,4 +23,10 @@ body{
             
         }
     }
+    div.homeimg{
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        }
 }
