@@ -35,12 +35,14 @@
          <li class="nav-item">
           <a class="nav-link active" href="#">For employers</a>
         </li>
+        {% if user.is_authenticated %}
         <li class="nav-item">
                       <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button type="submit" class="nav-link">Logout</button>
                       </form>
                     </li>
+                    {% endif %}
         <!-- <li class="nav-item">
             <a href=""><button class="btn btn-outline-success" type="submit"> Sign UP</button></a> 
         </li> -->
