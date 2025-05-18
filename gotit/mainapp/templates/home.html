@@ -15,13 +15,21 @@
     <h1>Find your jobs here</h1>
 </div>
 <div class="homesign">
+    {% if user.is_authenticated %}
+    <div>
+        <P>Start and apply for jobs Now. Click <b>Start applying</b></P>
+        <a  aria-current="page" href="{% url 'jobpage' %}"><button class="btn btn-outline-success" type="submit"> Start applying</button></a>
+    </div>
+    <hr>
+    {% else %}
     <p>By clicking <b>Sign Up</b> you can create a new account.</p>
-    <a href=""><button class="btn btn-outline-success" type="submit"> Sign UP</button></a>
+    <a  aria-current="page" href="{% url 'signup' %}"><button class="btn btn-outline-success" type="submit"> Sign UP</button></a>
     <br>
     <br> 
     <p>Already have account?</p>
-    <a href=""><button class="btn btn-outline-success" type="submit"> Login</button></a> 
+    <a  aria-current="page" href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit"> Login</button></a> 
     <hr>
+    {% endif %}
 </div>
 <div class="more">
     <div class="icons">
