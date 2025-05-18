@@ -23,3 +23,9 @@ def jobView(request):
 
     context = {}
     return HttpResponse(template.render(context, request))
+
+@login_required
+def ProfileView(request):
+    template = loader.get_template('profile.html')
+    context = {}
+    return HttpResponse(template.render(context, request))

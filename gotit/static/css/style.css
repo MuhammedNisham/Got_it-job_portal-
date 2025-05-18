@@ -31,6 +31,24 @@ body{
                 color:rgba(115, 235, 137, 0.842) ;
                 font-size: 28px;
             }
+            li.dropdown{
+                 margin-left: 220px;
+                a{
+                    svg{
+                       
+                        height: 33px;
+                        width: 33px;
+                    }
+                }
+                ul{
+                    li{
+                        margin-right: 10px;
+                        div.pp{
+                            margin-right: 25px;
+                        }
+                    }
+                }
+            }
         }
     }
     hr{
@@ -103,5 +121,7 @@ body{
 }
 footer{
     margin-left: 42%;
+    position: fixed;
+    bottom: 0;
 }
 }
