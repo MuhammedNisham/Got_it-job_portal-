@@ -11,6 +11,9 @@
 {% endblock %}
 
 {% block content %}
+        {% for userprofile in userprofiles %}
+         <li>{{ userprofile.user_name }} - </li>
+         {% endfor %}
 <div class="mainhead">
     <h1>Find your jobs here</h1>
 </div>
@@ -69,4 +72,7 @@
     </div>
     <hr>
 </div>
+{% endblock %}
+{% block footer %}
+Copyright&copy; 2025
 {% endblock %}

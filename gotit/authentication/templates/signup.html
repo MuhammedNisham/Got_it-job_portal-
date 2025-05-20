@@ -5,7 +5,8 @@
  {% endblock %}
  
  {% block content %}
- <div class="container d-flex justify-content-center align-items-center min-vh-80">
+ <div class="signup">
+    <div class="container d-flex justify-content-center align-items-center min-vh-80">
      <div class="card shadow p-4">
          <h2 class="mb-4 text-center">
              Register
@@ -24,7 +25,7 @@
                  {% endif %}
              </div>
              {% endfor %}
-             <button class="btn btn-primary" type="submit">Register</button>
+             <button class="btn btn-outline-success" type="submit"> Register</button>
          </form>
          <div class="redirect">
             <a href="{% url 'login' %}">Already have account?</a>
@@ -33,4 +34,5 @@
  
  </div>
  
+ </div>
  {% endblock %}

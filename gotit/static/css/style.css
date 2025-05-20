@@ -31,6 +31,15 @@ body{
                 color:rgba(115, 235, 137, 0.842) ;
                 font-size: 28px;
             }
+            div.nbell{
+                margin-left: 20px;
+                a{
+                    svg{
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
             li.dropdown{
                  margin-left: 220px;
                 a{
@@ -118,10 +127,35 @@ body{
             }
         }
     }
+    div.signup{
+        div.mb-3{
+            input{
+                box-shadow: 0 2px 8px rgba(3, 3, 3, 0.719);
+                transition: box-shadow 0.2s;
+            }
+            input:focus{
+                box-shadow: 0 2px 8px rgba(115, 235, 137, 0.728);
+            }
+        }
+    }
+    div.profilepage{
+        p.card-text{
+            strong{
+                display: inline-block;
+                margin-top: 15px;
+            }
+        }
+    }
+    div.editbtn{
+        a{
+            button{
+                margin-left: 8%;
+            }
+        }
+    }
 }
 footer{
-    margin-left: 42%;
-    position: fixed;
-    bottom: 0;
+     text-align: center;
+  padding: 1rem;
 }
 }

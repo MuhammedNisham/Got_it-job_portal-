@@ -36,12 +36,7 @@
           <a class="nav-link active" href="#">For employers</a>
         </li>
         {% if user.is_authenticated %}
-        <!-- <li class="nav-item">
-           <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-           <button type="submit" class="nav-link">Logout</button>
-          </form>
-          </li> -->
+        
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -60,6 +55,15 @@
           </form>
           </ul>
           {% endif %}
+          <li class="nav-item">
+          <div class="nbell">
+            <a class="nav-link active" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+            </svg>
+          </a>
+          </div>
+        </li>
         <!-- <li class="nav-item">
             <a href=""><button class="btn btn-outline-success" type="submit"> Sign UP</button></a> 
         </li> -->
@@ -94,8 +98,11 @@
         {% block content %}
         {% endblock %}
     </main>
+    
     <footer>
-      Copyright&copy; 2025
+      {% block footer %}
+      
+      {% endblock %}
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
