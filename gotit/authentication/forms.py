@@ -8,6 +8,7 @@ from django import forms
  
  # import AuthenticationForm from django's inbuilt authentication
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import aauthenticate
  
 class CustomLoginForm(AuthenticationForm):
      username = forms.CharField(
@@ -24,6 +25,14 @@ class CustomLoginForm(AuthenticationForm):
              'placeholder' : 'Enter your password'
          })
      )
+     def clean(self):
+          username = self.cleaned_data.get('username')
+          password = self.cleaned_data.get('password')
+          if username and password:
+               user = aauthenticate(username=username, password=password)
+               if user is None:
+                    raise forms.ValidationError("Password is incorrect")
+               return super().clean()
  
 class CustomRegisterForm(UserCreationForm):
      username = forms.CharField(
