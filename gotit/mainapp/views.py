@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 
-from .models import Job
+
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -16,17 +16,10 @@ def homeView(request):
     template = loader.get_template('home.html')
 
     context = {
-        'jobs' : Job.objects.all()
     }
     return HttpResponse(template.render(context, request))
 
 @login_required
-def jobView(request):
-    template = loader.get_template('jobs.html')
-
-    context = {}
-    return HttpResponse(template.render(context, request))
-
 def ProfileView(request):
     profile, created = UserProfile.objects.get_or_create(user_name=request.user.username,)
     if created:
@@ -37,7 +30,7 @@ def ProfileView(request):
 def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user_name=request.user.username)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             return redirect('profilepage')  

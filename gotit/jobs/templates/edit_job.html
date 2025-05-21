@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Got It | Job Edits
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h1>Edit job</h1>
+        <form method="post">
+             {% csrf_token %}
+             <div>
+                <label for="id_company_name" class="form-label">Company name :</label> <br>
+                {{ form.company_name }}
+                {{ form.company_name.errors }}
+                <label for="id_job_role" class="form-label">Job role :</label> <br>
+                {{ form.job_role }}
+                {{ form.job_role.errors }}
+                <label for="id_salary" class="form-label">Salary :</label> <br>
+                {{ form.salary }}
+                {{ form.salary.errors }}
+                <label for="id_job_description" class="form-label">Job description :</label> <br>
+                {{ form.job_description }}
+                {{ form.job_description.errors }}
+                <label for="id_responsibilities" class="form-label">Job responsibilities :</label><br>
+                {{ form.responsibilities }}
+                {{ form.responsibilities.errors }}
+                <label for="id_requirements" class="form-label">Job requirements :</label> <br>
+                {{ form.requirements }}
+                {{ form.requirements.errors }}
+                <label for="id_about_company" class="form-label">About company :</label> <br>
+                {{ form.about_company }}
+                {{ form.about_company.errors }}
+             </div>
+             <button type="submit" class="btn btn-outline-success">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

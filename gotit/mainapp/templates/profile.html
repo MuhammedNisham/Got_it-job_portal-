@@ -22,7 +22,12 @@ Got It | Your Profile
                             <strong>Full name:</strong> {{ profile.full_name }}<br>
                             <strong>Email:</strong> {{ profile.email }}<br>
                             <strong>Phone:</strong> {{ profile.phone }}<br>
-                            <strong>Location:</strong> {{ profile.location }}
+                            <strong>Location:</strong> {{ profile.location }} <br>
+                            {% if profile.resume %}
+                                <strong>Resume:</strong> <a href="{{ profile.resume.url }}" target="_blank"><button class="btn btn-outline-success">Download/View Resume</button></a>
+                            {% else %}
+                                <strong>Resume:</strong> Not updated
+                            {% endif %}
                         </p>
                     </div>
                 </div>

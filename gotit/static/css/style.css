@@ -153,6 +153,20 @@ body{
             }
         }
     }
+    div.profile-header{
+        h3{
+            color: rgba(115, 235, 137, 0.728);
+            svg{
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+    div.col-12{
+        div.card{
+        
+        }
+    }
 }
 footer{
      text-align: center;

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <h2>Edit Your Profile</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="id_full_name" class="form-label">Full Name</label>
@@ -19,9 +19,11 @@
             <label for="id_location" class="form-label">Location</label>
             {{ form.location }}
             {{ form.location.errors }}
-
-
-           
+            <label for="id_resume" class="form-label">Resume (PDF/DOCX)</label>
+            {{ form.resume }}
+            {% if profile.resume %}
+                <p>Current: <a href="{{ profile.resume.url }}" target="_blank">Download/View Resume</a></p>
+            {% endif %}
         </div>
         </div>
         <button type="submit" class="btn btn-outline-success">Save Changes</button>
