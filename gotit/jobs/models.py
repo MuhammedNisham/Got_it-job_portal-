@@ -6,6 +6,7 @@ class Job(models.Model):
     job_role = models.CharField(max_length=255, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
     salary = models.CharField(max_length=255, blank=True, null=True)
+    experience = models.CharField(max_length=255, blank=True, null=True)
     job_description = models.CharField(max_length=500, blank=True, null=True)
     responsibilities = models.CharField(max_length=500, blank=True, null=True)
     requirements = models.CharField(max_length=500, blank=True, null=True)

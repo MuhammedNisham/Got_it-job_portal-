@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
 <div class="container my-4">
   <div class="row">
     <!-- Left: Job List -->
@@ -73,7 +81,7 @@
       {% endif %}
 
           <div class="applybtn">
-            <a href=""><button class="btn btn-outline-success">apply</button></a>
+            <a href="{% url 'applypage' selected_job.id %}"><button class="btn btn-outline-success">apply</button></a>
           </div> 
           <h4>{{ selected_job.company_name }}</h4>
           <h5>{{ selected_job.job_role }}</h5>
@@ -82,10 +90,11 @@
             <strong>{{ selected_job.salary }}</strong>
           </p>
           <hr>
-          <p><strong>Description:</strong> {{ selected_job.job_description }}</p>
-          <p><strong>Responsibilities:</strong> {{ selected_job.responsibilities }}</p>
-          <p><strong>Requirements:</strong> {{ selected_job.requirements }}</p>
-          <p><strong>About Company:</strong> {{ selected_job.about_company }}</p>
+          <p><strong>Experience:</strong> <br> {{ selected_job.experience}}</p>
+          <p><strong>Description:</strong> <br> {{ selected_job.job_description }}</p>
+          <p><strong>Responsibilities:</strong> <br> {{ selected_job.responsibilities }}</p>
+          <p><strong>Requirements:</strong> <br> {{ selected_job.requirements }}</p>
+          <p><strong>About Company:</strong> <br> {{ selected_job.about_company }}</p>
         </div>
       </div>
       {% else %}

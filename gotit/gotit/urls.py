@@ -24,7 +24,8 @@ urlpatterns = [
     path('',include('mainapp.urls')),
     path('accounts/',include('authentication.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
-    path('jobs/',include('jobs.urls'))
+    path('jobs/',include('jobs.urls')),
+    path('applications/',include('applications.urls'))
 ]
 
 if settings.DEBUG:

@@ -27,3 +27,5 @@ document.addEventListener("DOMContentLoaded", function() {
   // Filter on button click
   searchBtn.addEventListener('click', filterJobs);
 });
+
+// javascript for application submission
