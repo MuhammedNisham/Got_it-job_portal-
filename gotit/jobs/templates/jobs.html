@@ -9,11 +9,32 @@
   <div class="row">
     <!-- Left: Job List -->
     <div class="col-lg-4 col-md-5 mb-4">
+        {% if user.is_staff %}
+        <div class="mb-2 text-end">
+        <a href="{% url 'addjobpage' %}" class="btn btn-primary">
+        <i class="bi bi-plus"></i> Add Job
+        </a>
+        </div>
+        {% endif %}
+        
+        <!-- Search Bar -->
+        <div class="input-group mb-3">
+          <input type="text" id="jobSearchInput" class="form-control" placeholder="Search jobs, location, company...">
+          <button class="btn btn-outline-secondary" type="button" id="jobSearchBtn">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+      
       {% if jobs %}
-        <div class="list-group">
+        <div class="list-group" id="jobList">
           {% for job in jobs %}
           <a href="{% url 'jobpage' %}?selected={{ job.id }}" 
-            class="list-group-item list-group-item-action{% if selected_job and job.id == selected_job.id %} active{% endif %}">
+            class="list-group-item list-group-item-action job-list-item{% if selected_job and job.id == selected_job.id %} active{% endif %}"
+            data-company="{{ job.company_name|lower }}"
+            data-role="{{ job.job_role|lower }}"
+            data-location="{{ job.location|lower }}"
+            data-salary="{{ job.salary|lower }}"
+            data-description="{{ job.job_description|lower }}">
             <div>
               <strong>{{ job.company_name }}</strong> – {{ job.job_role }}<br>
               {{ job.location }} | {{ job.salary }}
