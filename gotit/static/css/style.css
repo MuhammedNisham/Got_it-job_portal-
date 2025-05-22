@@ -4,172 +4,180 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-body{
+
+body {
     height: 100%;
     width: 100%;
-    header{
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 10;
-        ul{
-            margin-left: 350px;
-            li{ 
-               margin-left: 30px;
-               font-size: large;
-               transition-duration: .3s;
-            }
-            li:hover{
-                background-color: rgba(115, 235, 137, 0.443);
-                border-radius: 15px;
-                transition-duration: .3s;
-            }
-        }
-        nav{
-            border-radius: 10px;
-            a.navbar-brand{
-                color:rgba(115, 235, 137, 0.842) ;
-                font-size: 28px;
-            }
-            div.nbell{
-                margin-left: 20px;
-                a{
-                    svg{
-                        height: 25px;
-                        width: 25px;
-                    }
-                }
-            }
-            li.dropdown{
-                 margin-left: 220px;
-                a{
-                    svg{
-                       
-                        height: 33px;
-                        width: 33px;
-                    }
-                }
-                ul{
-                    li{
-                        margin-right: 10px;
-                        div.pp{
-                            margin-right: 25px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    hr{
-        margin-top: 70px;
-    }
-    main{
-        div.mainhead{
-            h1{
-                margin-top: 8%;
-                margin-left: 25%;
-                color: rgba(115, 235, 137, 0.728);
-                font-size: 80px;
-            }
-        }
-        div.homesign{
-            margin-top: 5%;
-            p{
-                margin-left: 38%;
-                b{
-                    color: rgba(115, 235, 137, 0.728);
-                }
-            }
-            a{
-                button{
-                    margin-left: 45%;
-                }
-            }
-            hr{
-                margin-top: 7%;
-            }
-        }
-        div.more{
-            div.icons{
-                display: flex;
-                margin-left: 17%;
-                margin-top: 3%;
-                svg{
-                    margin-left: 22%;
-                    height: 5%;
-                    width: 5%;
-                    object-fit: cover;
-                }
-        }
-        div.icondesc{
-            display: flex;
-            margin-left: 3%;
-            p.resume{
-                margin-top: 1%;
-                margin-left: 30%;
-            }
-            p.companies{
-                margin-top: 1%;
-                margin-left: 13%;      
-            }
-        }
-    }
-    div.contact{
-        p{
-            margin-left: 47%;
-        }
-        div.cicons{
-            margin-left: 44%;
-            svg{
-                height: 3%;
-                width: 3%;
-                margin-left: 3%;
-            }
-        }
-    }
-    div.signup{
-        div.mb-3{
-            input{
-                box-shadow: 0 2px 8px rgba(3, 3, 3, 0.719);
-                transition: box-shadow 0.2s;
-            }
-            input:focus{
-                box-shadow: 0 2px 8px rgba(115, 235, 137, 0.728);
-            }
-        }
-    }
-    div.profilepage{
-        p.card-text{
-            strong{
-                display: inline-block;
-                margin-top: 15px;
-            }
-        }
-    }
-    div.editbtn{
-        a{
-            button{
-                margin-left: 8%;
-            }
-        }
-    }
-    div.profile-header{
-        h3{
-            color: rgba(115, 235, 137, 0.728);
-            svg{
-                height: 30px;
-                width: 30px;
-            }
-        }
-    }
-    div.col-12{
-        div.card{
-        
-        }
-    }
+    background-color: #fffffd;
 }
-footer{
-     text-align: center;
-  padding: 1rem;
+
+/* Header/navbar */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
 }
+
+header ul {
+    margin-left: 18%;
+}
+header ul li {
+    margin-left: 30px;
+    font-size: large;
+    transition-duration: .3s;
+}
+header ul li:hover {
+    background-color: rgba(115, 235, 137, 0.443);
+    border-radius: 15px;
+    transition-duration: .3s;
+}
+
+header nav {
+    border-radius: 10px;
+}
+header nav a.navbar-brand {
+    color: rgba(115, 235, 137, 0.842);
+    font-size: 28px;
+}
+header nav div.nbell {
+    margin-left: 20px;
+}
+header nav div.nbell a svg {
+    height: 25px;
+    width: 25px;
+}
+header nav li.dropdown {
+    margin-left: 220px;
+}
+header nav li.dropdown a svg {
+    height: 33px;
+    width: 33px;
+}
+header nav li.dropdown ul li {
+    margin-right: 10px;
+}
+header nav li.dropdown ul li div.pp {
+    margin-right: 25px;
+}
+
+/* Horizontal rule under header */
+body hr {
+    margin-top: 70px;
+}
+
+/* Main content */
+main .mainhead h1 {
+    margin-top: 8%;
+    margin-left: 32%;
+    color: rgba(115, 235, 137, 0.728);
+}
+
+main .homesign {
+    margin-top: 2%;
+}
+main .homesign p {
+    margin-left: 33%;
+}
+main .homesign p b {
+    color: rgba(115, 235, 137, 0.728);
+}
+main .homesign a button {
+    margin-left: 45%;
+}
+main .homesign hr {
+    margin-top: 7%;
+}
+
+/* More section */
+main .more .icons {
+    display: flex;
+    margin-left: 17%;
+    margin-top: 3%;
+}
+main .more .icons svg {
+    margin-left: 22%;
+    height: 4%;
+    width: 4%;
+    object-fit: cover;
+}
+main .more .icondesc {
+    display: flex;
+    margin-left: 3%;
+}
+main .more .icondesc p.resume {
+    margin-top: 1%;
+    margin-left: 28%;
+}
+main .more .icondesc p.companies {
+    margin-top: 1%;
+    margin-left: 10%;
+}
+
+/* Contact section */
+main .contact p {
+    margin-left: 45%;
+}
+main .contact .cicons {
+    margin-left: 42%;
+}
+main .contact .cicons svg {
+    height: 3%;
+    width: 3%;
+    margin-left: 3%;
+}
+
+/* Signup form */
+main .signup .mb-3 input {
+    box-shadow: 0 2px 8px rgba(3, 3, 3, 0.719);
+    transition: box-shadow 0.2s;
+}
+main .signup .mb-3 input:focus {
+    box-shadow: 0 2px 8px rgba(115, 235, 137, 0.728);
+}
+
+/* Profile page */
+main .profilepage p.card-text strong {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* Edit button */
+main .editbtn a button {
+    margin-left: 8%;
+}
+
+/* Profile header */
+main .profile-header h3 {
+    color: rgba(115, 235, 137, 0.728);
+}
+main .profile-header h3 svg {
+    height: 30px;
+    width: 30px;
+}
+
+/* Cards hover */
+main .col-12 .card {
+    transition-duration: 0.4s;
+}
+main .col-12 .card:hover {
+    background-color: rgba(0, 0, 0, 0.030);
+    transition-duration: 0.4s;
+}
+
+/* Active list group item */
+.list-group-item.active,
+.list-group-item.active:focus {
+    background-color: rgba(13, 18, 14, 0.082);
+    border-color: rgba(13, 18, 14, 0.082);
+    color: #222;
+}
+main .applybtn a button{
+    margin-left: 78%;
+}
+
+/* Footer */
+footer {
+    margin-left: 42%;
+    
 }

@@ -5,59 +5,72 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% if user.is_authenticated %}
-        {% if user.is_staff %}
-    <div class="addbtn my-3">
-        <a href="{% url 'addjobpage' %}"><button class="btn btn-outline-success">Add job</button></a>
+<div class="container my-4">
+  <div class="row">
+    <!-- Left: Job List -->
+    <div class="col-lg-4 col-md-5 mb-4">
+      {% if jobs %}
+        <div class="list-group">
+          {% for job in jobs %}
+          <a href="{% url 'jobpage' %}?selected={{ job.id }}" 
+            class="list-group-item list-group-item-action{% if selected_job and job.id == selected_job.id %} active{% endif %}">
+            <div>
+              <strong>{{ job.company_name }}</strong> – {{ job.job_role }}<br>
+              {{ job.location }} | {{ job.salary }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No jobs available.</p>
+      {% endif %}
     </div>
-        {% else %}
-    <div class="profile-header">
-        <h3>For You <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
-                    <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
-                    </svg>
-        </h3>
+    <!-- Right: Job Details -->
+    <div class="col-lg-8">
+      {% if selected_job %}
+      <div class="card detailcard">
+        <div class="card-body position-relative">
+      {% if user.is_staff %}
+      <div class="mb-3" style="position: absolute; top: 1rem; right: 1rem; z-index: 2;">
+        <a href="{% url 'editjobpage' selected_job.id %}" class="btn btn-outline-success btn-sm me-2">
+          <i class="bi bi-pencil-fill"></i> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+          <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+          </svg>
+        </a>
+        <form action="{% url 'deletejobpage' selected_job.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this job?');">
+            <i class="bi bi-trash-fill"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      {% endif %}
+
+          <div class="applybtn">
+            <a href=""><button class="btn btn-outline-success">apply</button></a>
+          </div> 
+          <h4>{{ selected_job.company_name }}</h4>
+          <h5>{{ selected_job.job_role }}</h5>
+          <p>
+            {{ selected_job.location }}<br>
+            <strong>{{ selected_job.salary }}</strong>
+          </p>
+          <hr>
+          <p><strong>Description:</strong> {{ selected_job.job_description }}</p>
+          <p><strong>Responsibilities:</strong> {{ selected_job.responsibilities }}</p>
+          <p><strong>Requirements:</strong> {{ selected_job.requirements }}</p>
+          <p><strong>About Company:</strong> {{ selected_job.about_company }}</p>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-info">Select a job to see details.</div>
+      {% endif %}
     </div>
-        {% endif %}
-        {% endif %}
-    <div class="col-12">  
-        {% if jobs %}
-            {% for job in jobs %}
-                <div class="col-md-6 col-lg-4 mb-2 "> 
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p>
-                                 {{ job.company_name }} <br> 
-                                <strong>{{ job.job_role }}</strong>  <br>
-                                 {{ job.salary }} <br>
-                                <!-- <strong>Description: </strong> {{ job.job_description }} <br>
-                                <strong>Responsibilities: </strong> {{ job.responsibilities }} <br>
-                                <strong>Requirements:</strong> {{ job.requirements }} <br>
-                                <strong>About Company:</strong> {{ job.about_company }} <br> -->
-                            </p>
-                            {% if user.is_staff %}
-                                <a href="{% url 'editjobpage' job.id %}"><button class="btn btn-outline-success">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
-                                    </svg></button>
-                                </a>
-                                <form action="{% url 'deletejobpage' job.id %}" method="post" style="display:inline;">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-outline-danger" title="Delete"
-                                    onclick="return confirm('Are you sure you want to delete this job?');">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                    <path d="M2.5 1a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V2h1.5a.5.5 0 0 1 0 1h-1l-.356 11.607A2 2 0 0 1 10.65 16H5.35a2 2 0 0 1-1.994-1.393L3 3H2a.5.5 0 0 1 0-1H3V1zm3.5 5.5a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-6zm3 0a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-6z"/>
-                                    </svg>
-                                    </button>
-                                </form>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <div class="col-12"><p>No jobs available.</p></div>
-        {% endif %}
-    </div>
+  </div>
 </div>
 {% endblock %}
