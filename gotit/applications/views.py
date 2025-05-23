@@ -23,3 +23,10 @@ def applyView(request, job_id):
     else:
         form = ApplicationForm()
     return render(request, 'apply.html', {'form': form, 'job': job})
+
+@login_required
+def activityView(request):
+    return render(request, 'activity.html')
+
+def appliedView(request):
+    return render(request, 'applied.html')

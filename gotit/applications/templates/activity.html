@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Got It | Your Activity
+{% endblock %}
+
+{% block content %}
+<div class="activity">
+    <div class="card">
+        <div class="activityhead">
+            <h3>your activity</h3>
+        </div>
+        <hr>
+        <div>
+            <a href="{% url 'appliedpage' %}">Applied</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

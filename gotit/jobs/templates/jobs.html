@@ -13,6 +13,12 @@
     </div>
   {% endfor %}
 {% endif %}
+<div class="input-group mb-3">
+      <input type="text" id="jobSearchInput" class="form-control" placeholder="Search jobs, location, company...">
+          <button class="btn btn-outline-secondary" type="button" id="jobSearchBtn">
+            <i class="bi bi-search"></i> Search
+         </button>
+      </div>
 <div class="container my-4">
   <div class="row">
     <!-- Left: Job List -->
@@ -26,12 +32,6 @@
         {% endif %}
         
         <!-- Search Bar -->
-        <div class="input-group mb-3">
-          <input type="text" id="jobSearchInput" class="form-control" placeholder="Search jobs, location, company...">
-          <button class="btn btn-outline-secondary" type="button" id="jobSearchBtn">
-            <i class="bi bi-search"></i> Search
-          </button>
-        </div>
       
       {% if jobs %}
         <div class="list-group" id="jobList">

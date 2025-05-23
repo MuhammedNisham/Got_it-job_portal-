@@ -45,14 +45,29 @@
             </svg>
           </a>
           <ul class="dropdown-menu">
-            <li><div class="pp">
-              <a class="dropdown-item" href="{% url 'profilepage' %}">Your Profile</a>
-            </div></li>
             <li>
-              <form method="post" action="{% url 'logout' %}">
+              <div class="pp">
+              <a class="dropdown-item" href=""></a>
+            </div>
+            </li>
+            <li>
+              <form method="post" action="{% url 'profilepage' %}">
+              {% csrf_token %}
+              <button type="submit" class="nav-link">Your profile</button>
+              </form>
+            </li>
+            <li>
+            <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
            <button type="submit" class="nav-link">Logout</button>
           </form>
+          </li>
+          <li>
+            <form method="post" action="{% url 'activitypage' %}">
+            {% csrf_token %}
+           <button type="submit" class="nav-link">Activity</button>
+          </form>
+          </li>
           </ul>
           {% endif %}
           <li class="nav-item">

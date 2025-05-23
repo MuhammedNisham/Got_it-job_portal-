@@ -51,14 +51,14 @@ header nav li.dropdown {
     margin-left: 220px;
 }
 header nav li.dropdown a svg {
-    height: 33px;
-    width: 33px;
+    height: 30px;
+    width: 30px;
 }
 header nav li.dropdown ul li {
-    margin-right: 10px;
+    margin-right: 1%;
 }
 header nav li.dropdown ul li div.pp {
-    margin-right: 25px;
+    margin-right: 2%;
 }
 
 /* Horizontal rule under header */
@@ -144,7 +144,8 @@ main .profilepage p.card-text strong {
 
 /* Edit button */
 main .editbtn a button {
-    margin-left: 8%;
+    margin-bottom: 10%;
+    margin-left: 25%;
 }
 
 /* Profile header */
@@ -174,6 +175,19 @@ main .col-12 .card:hover {
 }
 main .applybtn a button{
     margin-left: 78%;
+}
+main .input-group{
+    width: 30%;
+    margin-left: 30%;
+}
+main .activity .card{
+    width: 90%;
+    margin-left: 5%;
+}
+main .activityhead h3{
+    color: rgba(115, 235, 137, 0.728);
+    margin-left: 4%;
+    margin-top: 2%;
 }
 
 /* Footer */
