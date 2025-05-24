@@ -3,3 +3,22 @@
 {% block title %}
  Got It | Applied
 {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Your Applied Jobs</h2>
+    {% if applications %}
+        <ul class="list-group">
+            {% for app in applications %}
+                <li class="list-group-item">
+                    <strong>{{ app.job.company_name }}</strong> – {{ app.job.job_role }}<br>
+                    Applied on: {{ app.applied_at|date:"Y-m-d H:i" }}<br>
+                    <em>{{ app.job.location }}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not applied for any jobs yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

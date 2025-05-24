@@ -18,15 +18,18 @@ def applyView(request, job_id):
             profile = UserProfile.objects.get(user_name=request.user.username)
             application.resume = profile.resume
             application.save()
-            messages.success(request, "Job applied successfully!")  # <--- Add this line
+            messages.success(request, "Job applied successfully! You can check details on activity")  
             return redirect('jobpage')
     else:
         form = ApplicationForm()
     return render(request, 'apply.html', {'form': form, 'job': job})
 
+
 @login_required
 def activityView(request):
-    return render(request, 'activity.html')
+    user_applications = Application.objects.filter(user=request.user).select_related('job')
+    return render(request, 'activity.html', {'applications': user_applications})
 
 def appliedView(request):
-    return render(request, 'applied.html')
+    user_applications = Application.objects.filter(user=request.user).select_related('job')
+    return render(request, 'applied.html', {'applications': user_applications})

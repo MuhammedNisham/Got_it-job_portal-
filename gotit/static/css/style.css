@@ -176,6 +176,9 @@ main .col-12 .card:hover {
 main .applybtn a button{
     margin-left: 78%;
 }
+main .applybtn button{
+    margin-left: 78%; 
+}
 main .input-group{
     width: 30%;
     margin-left: 30%;

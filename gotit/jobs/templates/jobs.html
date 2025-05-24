@@ -81,8 +81,15 @@
       {% endif %}
 
           <div class="applybtn">
-            <a href="{% url 'applypage' selected_job.id %}"><button class="btn btn-outline-success">apply</button></a>
-          </div> 
+            {% if selected_job.id in applied_jobs_ids %}
+            <button class="btn btn-secondary" disabled>Applied</button>
+            {% else %}
+            <a href="{% url 'applypage' selected_job.id %}">
+            <button class="btn btn-outline-success">Apply</button>
+            </a>
+           {% endif %}
+        </div>
+        
           <h4>{{ selected_job.company_name }}</h4>
           <h5>{{ selected_job.job_role }}</h5>
           <p>

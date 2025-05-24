@@ -1,3 +1,4 @@
+// javascript for search button in jobspage
 document.addEventListener("DOMContentLoaded", function() {
   const searchInput = document.getElementById('jobSearchInput');
   const searchBtn = document.getElementById('jobSearchBtn');
@@ -28,4 +29,22 @@ document.addEventListener("DOMContentLoaded", function() {
   searchBtn.addEventListener('click', filterJobs);
 });
 
-// javascript for application submission
+// javascript for applied job
+document.addEventListener('DOMContentLoaded', function() {
+    // Notification toggle
+    const notifBtn = document.getElementById('notifBtn');
+    const notifications = document.getElementById('notifications');
+    notifBtn.addEventListener('click', function() {
+        notifications.style.display = (notifications.style.display === 'none') ? 'block' : 'none';
+    });
+
+    // Applied Jobs toggle
+    const showBtn = document.getElementById('showAppliedBtn');
+    const cards = document.getElementById('appliedJobsCards');
+    let shown = false;
+    showBtn.addEventListener('click', function() {
+        shown = !shown;
+        cards.style.display = shown ? 'block' : 'none';
+        showBtn.textContent = shown ? 'Hide Applied Jobs' : 'Show Applied Jobs';
+    });
+});
