@@ -38,14 +38,3 @@ def edit_profile(request):
         form = UserProfileForm(instance=profile)
     return render(request, 'edit_profile.html', {'form': form, 'profile': profile})
 
-# community
-def communityView(request):
-    return render(request, 'community.html')
-
-#  companies
-def companyView(request):
-    return render(request, 'companies.html')
-
-# employer
-def employerView(request):
-    return render(request, 'employer.html')
