@@ -11,7 +11,7 @@
             <div id="chat-box">
         {% for message in messages %}
         <p><strong>{{ message.sender.username }}:</strong> {{ message.content }} 
-            <span class="text-muted small">({{ message.timestamp }})</span></p>
+            <span class="text-muted small message-timestamp" data-timestamp="{{ message.timestamp }}"></span></p>
             {% if user.is_staff or user.is_superuser %}
         <a href="{% url 'deletemessage' message.id %}" 
            onclick="return confirm('Are you sure you want to delete this message?');"

@@ -42,10 +42,14 @@
             data-role="{{ job.job_role|lower }}"
             data-location="{{ job.location|lower }}"
             data-salary="{{ job.salary|lower }}"
-            data-description="{{ job.job_description|lower }}">
+            data-description="{{ job.job_description|lower }}"
+            data-posted="{{ job.posted_at|date:'c' }}">
             <div>
               <strong>{{ job.company_name }}</strong> – {{ job.job_role }}<br>
-              {{ job.location }} | {{ job.salary }}
+              {{ job.location }} | {{ job.salary }} <br>
+              <small class="text-muted">
+                 <span class="posted-time"></span> ago
+              </small>
             </div>
           </a>
           {% endfor %}
@@ -92,6 +96,9 @@
         
           <h4>{{ selected_job.company_name }}</h4>
           <h5>{{ selected_job.job_role }}</h5>
+          <small class="text-muted">
+             Posted <span class="posted-time-detail" data-posted="{{ selected_job.created_at|date:'c' }}"></span> ago
+          </small>
           <p>
             {{ selected_job.location }}<br>
             <strong>{{ selected_job.salary }}</strong>
@@ -102,6 +109,7 @@
           <p><strong>Responsibilities:</strong> <br> {{ selected_job.responsibilities }}</p>
           <p><strong>Requirements:</strong> <br> {{ selected_job.requirements }}</p>
           <p><strong>About Company:</strong> <br> {{ selected_job.about_company }}</p>
+          <p><strong>Last date:</strong><br> {{ selected_job.last_date }}</p>
         </div>
       </div>
       {% else %}

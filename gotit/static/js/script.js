@@ -48,3 +48,54 @@ document.addEventListener('DOMContentLoaded', function() {
         showBtn.textContent = shown ? 'Hide Applied Jobs' : 'Show Applied Jobs';
     });
 });
+
+// javascript for jobcard posted-time
+function timeAgoShort(dateString) {
+    const now = new Date();
+    const posted = new Date(dateString);
+    const diffMs = now - posted;
+    const diffSec = Math.floor(diffMs / 1000);
+    const diffMin = Math.floor(diffSec / 60);
+    const diffHr = Math.floor(diffMin / 60);
+    const diffDay = Math.floor(diffHr / 24);
+
+    if (diffDay >= 1) {
+        return diffDay + 'd';
+    } else if (diffHr >= 1) {
+        return diffHr + 'h';
+    } else if (diffMin >= 1) {
+        return diffMin + 'm';
+    } else {
+        return 'Just now';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Job list cards
+    document.querySelectorAll('.job-list-item').forEach(function(item) {
+        var posted = item.getAttribute('data-posted');
+        var timeElem = item.querySelector('.posted-time');
+        if (posted && timeElem) {
+            timeElem.textContent = timeAgoShort(posted);
+        }
+    });
+    // Job details card
+    var detailElem = document.querySelector('.posted-time-detail');
+    if (detailElem) {
+        var posted = detailElem.getAttribute('data-posted');
+        if (posted) {
+            detailElem.textContent = timeAgoShort(posted);
+        }
+    }
+});
+
+// javascript for for adding our systems local time in community Chat 
+document.addEventListener('DOMContentLoaded', function() {
+    // For all message timestamps, replace with current system time
+    var now = new Date();
+    var nowStr = now.toLocaleString(); // Adjust formatting as needed
+
+    document.querySelectorAll('.message-timestamp').forEach(function(elem) {
+        elem.textContent = '(' + nowStr + ')';
+    });
+});

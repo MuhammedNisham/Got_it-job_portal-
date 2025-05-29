@@ -20,7 +20,7 @@ header {
 }
 
 header ul {
-    margin-left: 27%;
+    margin-left: 35%;
 }
 header ul li {
     margin-left: 30px;
@@ -41,14 +41,14 @@ header nav a.navbar-brand {
     font-size: 28px;
 }
 header nav div.nbell {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 header nav div.nbell a svg {
     height: 25px;
     width: 25px;
 }
 header nav li.dropdown {
-    margin-left: 220px;
+    margin-left: 320px;
 }
 header nav li.dropdown a svg {
     height: 30px;
@@ -199,7 +199,6 @@ main .communityChat h2{
 }
 main #chat-box p{
     margin-top: 2%;
-    text-align: center;
 }
 main .input-group{
     margin-left: 35%;

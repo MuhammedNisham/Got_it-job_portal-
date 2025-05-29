@@ -11,6 +11,8 @@ class Job(models.Model):
     responsibilities = models.CharField(max_length=500, blank=True, null=True)
     requirements = models.CharField(max_length=500, blank=True, null=True)
     about_company = models.CharField(max_length=500, blank=True, null=True)
+    last_date = models.DateField( blank=True, null=True)
+    posted_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return f"Product: {self.company_name}"  
