@@ -55,25 +55,4 @@
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Notification toggle
-    const notifBtn = document.getElementById('notifBtn');
-    const notifications = document.getElementById('notifications');
-    notifBtn.addEventListener('click', function() {
-        notifications.style.display = (notifications.style.display === 'none') ? 'block' : 'none';
-    });
-
-    // Applied Jobs toggle
-    const showBtn = document.getElementById('showAppliedBtn');
-    const cards = document.getElementById('appliedJobsCards');
-    let shown = false;
-    showBtn.addEventListener('click', function() {
-        shown = !shown;
-        cards.style.display = shown ? 'block' : 'none';
-        showBtn.textContent = shown ? 'Hide Applied Jobs' : 'Show Applied Jobs';
-    });
-});
-</script>
 {% endblock %}

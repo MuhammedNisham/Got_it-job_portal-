@@ -20,7 +20,7 @@ header {
 }
 
 header ul {
-    margin-left: 18%;
+    margin-left: 27%;
 }
 header ul li {
     margin-left: 30px;
@@ -192,7 +192,35 @@ main .activityhead h3{
     margin-left: 4%;
     margin-top: 2%;
 }
-
+main .communityChat h2{
+    color: rgba(115, 235, 137, 0.728);
+    text-align: center;
+    margin-top: 2%;
+}
+main #chat-box p{
+    margin-top: 2%;
+    text-align: center;
+}
+main .input-group{
+    margin-left: 35%;
+}
+main .input-group .form-control:focus{
+    box-shadow: 0 0 5px 2px rgba(115, 235, 137, 0.728); 
+    border-color: rgba(115, 235, 137, 0.728);
+} 
+main .communityChat .card{
+    margin-left: 5%;
+    width: 90%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+main .communityChat #chat-box {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #0d0d0e0a;
+}
 /* Footer */
 footer {
     margin-left: 42%;

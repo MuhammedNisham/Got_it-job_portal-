@@ -27,13 +27,10 @@
           <a class="nav-link active" aria-current="page" href="{% url 'jobpage' %}">Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Community</a>
+          <a class="nav-link active" href="{% url 'communitypage' %}">Community</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link active" href="#">Companies</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link active" href="#">For employers</a>
+          <a class="nav-link active" href="{% url 'companypage' %}">Companies</a>
         </li>
         {% if user.is_authenticated %}
         

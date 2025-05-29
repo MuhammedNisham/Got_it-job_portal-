@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'mainapp',
     'authentication',
     'jobs',
-    'applications'
+    'applications',
+    'community',
 ]
 
 MIDDLEWARE = [

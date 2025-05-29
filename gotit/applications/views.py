@@ -9,13 +9,23 @@ from django.contrib import messages
 @login_required
 def applyView(request, job_id):
     job = get_object_or_404(Job, pk=job_id)
+    # --- Profile completeness check ---
+    try:
+        profile = UserProfile.objects.get(user_name=request.user.username)
+        profile_is_complete = bool(profile.resume)  
+    except UserProfile.DoesNotExist:
+        profile_is_complete = False
+
+    if not profile_is_complete:
+        messages.warning(request, "Please update your profile before applying for a job.")
+        return redirect('profilepage')  
+
     if request.method == 'POST':
         form = ApplicationForm(request.POST)
         if form.is_valid():
             application = form.save(commit=False)
             application.user = request.user
             application.job = job
-            profile = UserProfile.objects.get(user_name=request.user.username)
             application.resume = profile.resume
             application.save()
             messages.success(request, "Job applied successfully! You can check details on activity")  
@@ -23,7 +33,6 @@ def applyView(request, job_id):
     else:
         form = ApplicationForm()
     return render(request, 'apply.html', {'form': form, 'job': job})
-
 
 @login_required
 def activityView(request):
