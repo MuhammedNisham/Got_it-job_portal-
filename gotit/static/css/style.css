@@ -136,6 +136,21 @@ main .signup .mb-3 input:focus {
     box-shadow: 0 2px 8px rgba(115, 235, 137, 0.728);
 }
 
+/* login form */
+main .loginpage input{
+    border-width: 1px;
+}
+/* main .loginpage input:focus{
+    border-width: 1px;
+} */
+main .loginpage .mb-3 input{
+    box-shadow: 0 2px 8px rgba(3, 3, 3, 0.719);
+    transition: box-shadow 0.2s;
+}
+main .loginpage .mb-3 input:focus {
+    box-shadow: 0 2px 8px rgba(115, 235, 137, 0.728);
+}
+
 /* Profile page */
 main .profilepage p.card-text strong {
     display: inline-block;

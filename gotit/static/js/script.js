@@ -99,3 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.textContent = '(' + nowStr + ')';
     });
 });
+
+// javascript for post upload in community
+document.getElementById('fileInput').onchange = function () {
+    var fileName = this.files[0] ? this.files[0].name : '';
+    document.getElementById('fileName').textContent = fileName;
+};
