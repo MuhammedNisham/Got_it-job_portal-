@@ -100,11 +100,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// javascript for post upload in community
-document.getElementById('fileInput').onchange = function () {
-    var fileName = this.files[0] ? this.files[0].name : '';
-    document.getElementById('fileName').textContent = fileName;
-};
 
-// javascript for transition from one page to another
 

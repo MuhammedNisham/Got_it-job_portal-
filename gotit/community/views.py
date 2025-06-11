@@ -10,7 +10,7 @@ def communityView(request):
         content = request.POST.get("content")
         image = request.FILES.get("image")
         if content or image:
-            Message.objects.create(sender=request.user, content=content, image = image if image else none)
+            Message.objects.create(sender=request.user, content=content, image = image if image else None)
             return redirect("communitypage")
 
     messages = Message.objects.order_by("timestamp")

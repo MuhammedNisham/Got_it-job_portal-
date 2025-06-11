@@ -36,8 +36,14 @@ def applyView(request, job_id):
 
 @login_required
 def activityView(request):
-    user_applications = Application.objects.filter(user=request.user).select_related('job')
-    return render(request, 'activity.html', {'applications': user_applications})
+    if request.user.is_staff or request.user.is_superuser:
+        # Admin or staff
+        all_applications = Application.objects.select_related('job', 'user')
+        return render(request, 'activity.html', {'applications': all_applications, 'show_user': True})
+    else:
+        # Regular user
+        user_applications = Application.objects.filter(user=request.user).select_related('job')
+        return render(request, 'activity.html', {'applications': user_applications, 'show_user': False})
 
 def appliedView(request):
     user_applications = Application.objects.filter(user=request.user).select_related('job')
